@@ -1,3 +1,4 @@
+import sys
 import pygame
 from constants import *
 from player import Player
@@ -48,6 +49,15 @@ def main():
 
         # limit the framerate to 60 FPS
         dt = clock.tick(60) / 1000
+
+        for asteroid in asteroid_group:
+            if asteroid.collision_with(player):
+                print("Game over!")
+                screen.fill("red")
+                pygame.display.flip()
+                pygame.time.delay(250)
+                sys.exit()
+                
 
 if __name__ == "__main__":
     main()
