@@ -13,6 +13,7 @@ def main():
     print("Screen height: 720")
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     clock = pygame.time.Clock()
+    score = 0
     dt = 0
     
     drawable_group = pygame.sprite.Group()
@@ -52,14 +53,20 @@ def main():
         dt = clock.tick(60) / 1000
 
         for asteroid in asteroid_group:
-            if asteroid.collision_with(player):
-                print("Game over!")
-                screen.fill("red")
-                pygame.display.flip()
-                pygame.time.delay(250)
-                sys.exit()
-                
+                if asteroid.collision_with(player):
+                    print("Game over!")
+                    print(f"Final Score: {score}")
+                    screen.fill("red")
+                    pygame.display.flip()
+                    pygame.time.delay(250)
+                    sys.exit()
+
+                for shot in shot_group:
+                    if asteroid.collision_with(shot):
+                        # asteroid should die first 
+                        asteroid.kill()
+                        shot.kill()
+                        score += 1
 
 if __name__ == "__main__":
     main()
-
