@@ -64,7 +64,7 @@ def main():
                 for shot in shot_group:
                     if asteroid.collision_with(shot):
                         # asteroid should die first 
-                        asteroid.kill()
+                        asteroid.split()
                         shot.kill()
                         score += 1
 
