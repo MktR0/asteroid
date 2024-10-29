@@ -1,6 +1,7 @@
 import sys
 import pygame
 from constants import *
+from effects import *
 from player import Player
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
@@ -56,14 +57,14 @@ def main():
                 if asteroid.collision_with(player):
                     print("Game over!")
                     print(f"Final Score: {score}")
-                    screen.fill("red")
-                    pygame.display.flip()
+                    explosion(screen)
+                    display_game_over(screen)
                     pygame.time.delay(250)
                     sys.exit()
 
                 for shot in shot_group:
                     if asteroid.collision_with(shot):
-                        # asteroid should die first 
+                        # asteroid should die first
                         asteroid.split()
                         shot.kill()
                         score += 1
