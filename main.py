@@ -67,7 +67,7 @@ def main():
                         # asteroid should die first
                         asteroid.split()
                         shot.kill()
-                        score += 1
+                        score += SCORE_INCREMENT
 
 if __name__ == "__main__":
     main()
