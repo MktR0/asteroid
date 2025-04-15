@@ -1,7 +1,7 @@
 
 # Asteroid Game 
 
-This learning project is meant to recreate the basic mechanices of the old video game Asteroids. The focus of this project is the object oriented programming paradigm. 
+This learning project is meant to recreate the basic mechanices of the old video game Asteroids. The focus of this project is to better understand the object oriented programming paradigm. 
 
 ## How to Play
 🎮 Controls:
